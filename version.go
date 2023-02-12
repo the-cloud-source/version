@@ -24,6 +24,7 @@ var (
 
 	userAgent = ""
 	vString   = ""
+	webHash   = ""
 )
 
 func init() {
@@ -47,6 +48,7 @@ func init() {
 
 	userAgent = ua()
 	vString = v()
+	webHash = buildWebHash()
 }
 
 func UserAgent() string {
@@ -121,4 +123,12 @@ func v() string {
 	}
 
 	return sb.String()
+}
+
+func WebHash() string {
+	return webHash
+}
+
+func buildWebHash() string {
+	return strings.Replace(GitCommit+"-"+BuildTime, "+", "-", -1)
 }
