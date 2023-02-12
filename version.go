@@ -106,8 +106,10 @@ func v() string {
 
 	sb.WriteString(" git=")
 	sb.WriteString(GitCommit)
-	sb.WriteString(" branch=")
-	sb.WriteString(GitBranch)
+	if GitBranch != "unknown" {
+		sb.WriteString(" branch=")
+		sb.WriteString(GitBranch)
+	}
 
 	sb.WriteString(" ")
 	sb.WriteString(built)
