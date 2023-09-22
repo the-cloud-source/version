@@ -134,3 +134,9 @@ func WebHash() string {
 func buildWebHash() string {
 	return strings.Replace(GitCommit+"-"+BuildTime, "+", "-", -1)
 }
+
+var kernel = "unknown"
+
+func Kernel() string {
+	return kernel
+}
