@@ -101,8 +101,10 @@ func v() string {
 		sb.WriteString(" version=")
 		sb.WriteString(Version)
 	}
-	sb.WriteString(" build=")
-	sb.WriteString(Build)
+	if Build != "0000" || Version == "0.0.0" {
+		sb.WriteString(" build=")
+		sb.WriteString(Build)
+	}
 
 	sb.WriteString(" git=")
 	sb.WriteString(GitCommit)
